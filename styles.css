@@ -395,8 +395,9 @@ h1 {
   bottom: 24px;
   width: 54px;
   height: 54px;
-  background: #25d366;
-  color: #0b0f14;
+  background: #0b0f14;
+  color: #25d366;
+  border: 1px solid rgba(37, 211, 102, 0.4);
   border-radius: 50%;
   display: grid;
   place-items: center;
