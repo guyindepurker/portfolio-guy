@@ -30,6 +30,7 @@ html[data-theme="light"] {
   padding: 0;
 }
 .fa-whatsapp {color: white;}
+
 body {
   font-family: "Space Grotesk", sans-serif;
   background: var(--bg);
@@ -387,6 +388,16 @@ h1 {
   flex-wrap: wrap;
   gap: 1rem;
   color: var(--muted);
+}
+
+.contact-item {
+  transition: .3s ease;
+}
+
+.contact-item:hover {
+  font-size: 20px;
+    transition: .3s ease;
+
 }
 
 .whatsapp {
