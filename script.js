@@ -47,7 +47,18 @@ revealTextElements.forEach((el) => {
 });
 
 if (window.gsap) {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (event) => {
+      const targetId = anchor.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      event.preventDefault();
+      gsap.to(window, { duration: 1, scrollTo: target, ease: "power2.out" });
+    });
+  });
 
   gsap.from(".hero .word", {
     y: 60,
@@ -76,18 +87,30 @@ if (window.gsap) {
   });
 
 
-  gsap.utils.toArray("section").forEach((section) => {
-    gsap.from(section.querySelectorAll(".about-card, .skill-card, .service-card, .project-card, .timeline-step, .contact-form, .contact-info"), {
-      scrollTrigger: {
-        trigger: section,
-        start: "top 80%",
-      },
-      y: 40,
-      opacity: 0,
-      stagger: 0.08,
-      duration: 0.8,
-      ease: "power2.out",
-    });
+
+  gsap.utils.toArray('section').forEach((section) => {
+    const title = section.querySelectorAll('.section-title .eyebrow, .section-title h2');
+    const content = section.querySelectorAll('.about-card, .skill-card, .service-card, .project-card, .timeline-step, .contact-form, .contact-info');
+    if (title.length) {
+      gsap.from(title, {
+        scrollTrigger: { trigger: section, start: 'top 85%' },
+        y: 20,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.6,
+        ease: 'power2.out',
+      });
+    }
+    if (content.length) {
+      gsap.from(content, {
+        scrollTrigger: { trigger: section, start: 'top 80%' },
+        y: 40,
+        opacity: 0,
+        stagger: 0.08,
+        duration: 0.8,
+        ease: 'power2.out',
+      });
+    }
   });
 }
 
