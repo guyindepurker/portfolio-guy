@@ -29,7 +29,7 @@ html[data-theme="light"] {
   margin: 0;
   padding: 0;
 }
-
+.fa-whatsapp {color: white;}
 body {
   font-family: "Space Grotesk", sans-serif;
   background: var(--bg);
@@ -396,7 +396,7 @@ h1 {
   width: 54px;
   height: 54px;
   background: #0b0f14;
-  color: #25d366;
+  background-color: #25d366;
   border: 1px solid rgba(37, 211, 102, 0.4);
   border-radius: 50%;
   display: grid;
@@ -436,7 +436,10 @@ h1 {
   main {
     padding: 0 5vw 4rem;
   }
-
+  .img {
+    width: 50%;
+    margin: 0;
+  }
   .hero {
     padding-top: 4.5rem;
   }
@@ -447,7 +450,8 @@ h1 {
 }
 
 .img {
-    width: 20%;
-    border-radius: 200px;
+    width: 75%;
+    border-radius: 20px;
+    margin: 10px;
     border: 1px solid #454545;
 }
